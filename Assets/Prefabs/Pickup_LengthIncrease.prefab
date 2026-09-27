@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pickupType: 0
-  chainLinkPrefab: {fileID: 0}
+  chainLinkPrefab: {fileID: 4702437394544058867, guid: 1568bedac6af14aa488c0f6d3cfe617e, type: 3}
   lengthIncreaseAmount: 1
   moveSpeed: 3
   bounceRadius: 0.4

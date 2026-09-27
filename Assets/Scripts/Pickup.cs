@@ -67,16 +67,21 @@ public class Pickup : MonoBehaviour
         if (chain == null) return;
 
         //the chain can be fully destroyed (every link cut away), leaving chainLinks empty rather
-        //than null - a Joint pickup needs to still work then, since it's the only way to rebuild
-        //a chain from nothing. A Length pickup genuinely has nothing to extend in that case though.
+        //than null - either pickup type can rebuild it from nothing, not just Joint: a Length
+        //pickup found with no chain at all just spawns the first link with real length right away.
         bool hasLinks = chain.chainLinks != null && chain.chainLinks.Length > 0;
         ChainLink lastLink = hasLinks ? chain.chainLinks[chain.chainLinks.Length - 1] : null;
 
         if (pickupType == PickupType.Length)
         {
-            if (!hasLinks) return; //nothing to lengthen - leave the pickup uncollected
-
-            lastLink.SetLength(lastLink.length + lengthIncreaseAmount);
+            if (hasLinks)
+            {
+                lastLink.SetLength(lastLink.length + lengthIncreaseAmount);
+            }
+            else
+            {
+                SpawnLink(chain, 0f, 1.5f);
+            }
         }
         else if (pickupType == PickupType.Joint)
         {
@@ -87,23 +92,31 @@ public class Pickup : MonoBehaviour
 
             if (!alreadyPending)
             {
-                GameObject newLinkObj = Instantiate(chainLinkPrefab, chain.transform);
-                ChainLink newLink = newLinkObj.GetComponent<ChainLink>();
-
-                //start it out matching the current last link's angle so it doesn't visually snap on
-                //the first frame (no previous link to match if the chain is empty - default to facing
-                //right, Chain.Update() will rotate it toward the mouse aim from there either way)
-                newLink.angle = hasLinks ? lastLink.angle : 0f;
-                newLink.angVel = 0f;
-
                 //joints add no length by themselves - it stays a zero-length "pending joint" marker
                 //until a Length pickup extends it into an actual segment
-                newLink.length = 0f;
-
-                chain.AddLink(newLink);
+                float angle = hasLinks ? lastLink.angle : 0f;
+                SpawnLink(chain, angle, 0f);
             }
         }
 
         Destroy(gameObject);
+    }
+
+    //instantiates a new chain link and appends it via chain.AddLink - length is set before AddLink
+    //runs (rather than after) since AddLink triggers a visual refresh that reads the current length
+    ChainLink SpawnLink(Chain chain, float angle, float length)
+    {
+        GameObject newLinkObj = Instantiate(chainLinkPrefab, chain.transform);
+        ChainLink newLink = newLinkObj.GetComponent<ChainLink>();
+
+        //start it out matching the current last link's angle so it doesn't visually snap on the
+        //first frame (no previous link to match if the chain is empty - default to facing right,
+        //Chain.Update() will rotate it toward the mouse aim from there either way)
+        newLink.angle = angle;
+        newLink.angVel = 0f;
+        newLink.length = length;
+
+        chain.AddLink(newLink);
+        return newLink;
     }
 }
