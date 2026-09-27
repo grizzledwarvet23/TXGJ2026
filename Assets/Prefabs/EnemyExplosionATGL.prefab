@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &408610764995277670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986546357678103982}
+  - component: {fileID: 407315627721293575}
+  m_Layer: 0
+  m_Name: EnemyExplosionATGL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &986546357678103982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408610764995277670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407315627721293575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408610764995277670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1440da6080944cd6a8e66c38438fbce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  frames:
+  - pieces:
+    - {fileID: 7879536138701812486, guid: 8c6f20363ee8e4eeda19f4aaf780e90c, type: 3}
+    offsets:
+    - {x: 0.0, y: 0.0}
+  - pieces:
+    - {fileID: -578271502089398524, guid: 4289fc6c4b2e94f368d28c6627fd94aa, type: 3}
+    offsets:
+    - {x: 0.0, y: 0.0}
+  - pieces:
+    - {fileID: -7287478134612298900, guid: 21e3ee09c467c40efa5675694a6b23e7, type: 3}
+    offsets:
+    - {x: 0.005, y: -0.045}
+  - pieces:
+    - {fileID: 890324574893903706, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -7803705731611977968, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -1176588097212984389, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: 3171548379659849568, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: 5597658983512054459, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -2665529638917151280, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: 15962925881766067, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: 1769700649654267200, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -7822618898384254222, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -6907482717904369839, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -3778759913241422152, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: 1247701020576541172, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: -8560035274762798890, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    - {fileID: 4773727521514047402, guid: 00961b33ae2be42e9a444bb6ef5c75ab, type: 3}
+    offsets:
+    - {x: -0.34, y: 1.055}
+    - {x: 0.39, y: 0.89}
+    - {x: -0.615, y: 0.515}
+    - {x: -0.18, y: 0.29}
+    - {x: 0.035, y: -0.32}
+    - {x: 0.53, y: 0.11}
+    - {x: 0.87, y: -0.055}
+    - {x: -0.645, y: -0.25}
+    - {x: 0.61, y: -0.335}
+    - {x: 0.95, y: -0.4}
+    - {x: -0.84, y: -0.61}
+    - {x: -0.485, y: -0.71}
+    - {x: 0.53, y: -0.84}
+    - {x: -0.27, y: -1.03}
+  - pieces:
+    - {fileID: 3045522228268320798, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: 5896944745449183226, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -2483862461310609590, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -3373747289942906001, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -6231277761456194032, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -2193810732689483079, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -801716730156743549, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: 3120286174556894925, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -1578564455917444055, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -5177042191084305324, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -7950471801473828138, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: 6253309854054193725, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -9125395967213998478, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: 2721054108719955643, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    - {fileID: -5131804235489504495, guid: 59899afe24e384a4893cd7f6b7de89a4, type: 3}
+    offsets:
+    - {x: -0.51, y: 1.095}
+    - {x: 0.7, y: 0.82}
+    - {x: -0.715, y: 0.43}
+    - {x: -0.235, y: 0.14}
+    - {x: 0.64, y: 0.245}
+    - {x: 0.97, y: -0.035}
+    - {x: -0.755, y: -0.27}
+    - {x: -0.185, y: -0.37}
+    - {x: 0.675, y: -0.38}
+    - {x: 0.16, y: -0.66}
+    - {x: 0.975, y: -0.465}
+    - {x: -0.895, y: -0.655}
+    - {x: -0.59, y: -0.815}
+    - {x: -0.295, y: -1.1}
+    - {x: 0.615, y: -0.945}
+  - pieces:
+    - {fileID: 5261465102054820870, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: -8689004892423389391, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 8800110928112217495, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 3210824864370406630, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 5704124957978246583, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: -816546587743476463, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 6189965382505590080, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: -761438964174350052, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 7797911410277438657, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 4496580262911322091, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: -1782909869377439623, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    - {fileID: 4171194372896577344, guid: 79e8ddf667b7542728138cc7356d2a81, type: 3}
+    offsets:
+    - {x: -0.625, y: 1.075}
+    - {x: 0.895, y: 0.805}
+    - {x: -0.78, y: 0.37}
+    - {x: 0.765, y: 0.24}
+    - {x: -0.385, y: -0.055}
+    - {x: 1.035, y: -0.08}
+    - {x: -0.88, y: -0.34}
+    - {x: 0.765, y: -0.51}
+    - {x: -0.26, y: -0.58}
+    - {x: 0.17, y: -0.79}
+    - {x: -0.675, y: -0.94}
+    - {x: 0.63, y: -1.09}
+  frameDuration: 0.05
+  originOffset: {x: 0, y: 0}

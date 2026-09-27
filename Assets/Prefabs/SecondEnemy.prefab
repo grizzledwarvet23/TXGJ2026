@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bullet: {fileID: 2245233907656542316, guid: 1822fa1b6a78c4c229c921b1232c0218, type: 3}
   firePoint: {fileID: 3332595233203063682}
+  deathExplosionPrefab: {fileID: 537100595699282005, guid: 1384d03f420f4f7f8e7e2168a66328bc, type: 3}
   health: 2
 --- !u!61 &614524276518258421
 BoxCollider2D:

@@ -1,0 +1,574 @@
+fileFormatVersion: 2
+guid: 854bd0fa233ee401d841542c97fe788d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 898352258531398975
+    second: TXGJ_Wall_Explode-4_0
+  - first:
+      213: 3175721017712703245
+    second: TXGJ_Wall_Explode-4_1
+  - first:
+      213: 3693195765807443481
+    second: TXGJ_Wall_Explode-4_2
+  - first:
+      213: 2517198554797831759
+    second: TXGJ_Wall_Explode-4_3
+  - first:
+      213: -7754702379836209140
+    second: TXGJ_Wall_Explode-4_4
+  - first:
+      213: -6506003906220256574
+    second: TXGJ_Wall_Explode-4_5
+  - first:
+      213: -4453544754668737950
+    second: TXGJ_Wall_Explode-4_6
+  - first:
+      213: -9134252237768500442
+    second: TXGJ_Wall_Explode-4_7
+  - first:
+      213: -4208659325173632330
+    second: TXGJ_Wall_Explode-4_8
+  - first:
+      213: 8229725934084484075
+    second: TXGJ_Wall_Explode-4_9
+  - first:
+      213: 2802892295275814130
+    second: TXGJ_Wall_Explode-4_10
+  - first:
+      213: 6538306279077231682
+    second: TXGJ_Wall_Explode-4_11
+  - first:
+      213: -2454183658947908149
+    second: TXGJ_Wall_Explode-4_12
+  - first:
+      213: -1609961716928195028
+    second: TXGJ_Wall_Explode-4_13
+  - first:
+      213: -6370103078089089396
+    second: TXGJ_Wall_Explode-4_14
+  - first:
+      213: -5193232072935179538
+    second: TXGJ_Wall_Explode-4_15
+  - first:
+      213: 3681194031410374240
+    second: TXGJ_Wall_Explode-4_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 425
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f351fe49e96977c00800000000000000
+      internalID: 898352258531398975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 418
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07f18e907d621c20800000000000000
+      internalID: 3175721017712703245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 350
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91eedea4bfdd04330800000000000000
+      internalID: 3693195765807443481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 381
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46f9d7bfb2eee220800000000000000
+      internalID: 2517198554797831759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_4
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 344
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c088cfe8543c16490800000000000000
+      internalID: -7754702379836209140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 291
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c21076eae706b5a0800000000000000
+      internalID: -6506003906220256574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_6
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 258
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a6aaa34a4d132c0800000000000000
+      internalID: -4453544754668737950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_7
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 232
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62bddfe2cfd9c3180800000000000000
+      internalID: -9134252237768500442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_8
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 187
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2f36664a6d795c0800000000000000
+      internalID: -4208659325173632330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_9
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 187
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebece3522cd53270800000000000000
+      internalID: 8229725934084484075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_10
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 135
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc189331bfd5e620800000000000000
+      internalID: 2802892295275814130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_11
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 157
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cba1d5beabcba50800000000000000
+      internalID: 6538306279077231682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 117
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd67da07fcf0fdd0800000000000000
+      internalID: -2454183658947908149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_13
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 70
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c265480395448a9e0800000000000000
+      internalID: -1609961716928195028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_14
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 76
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e90ef2009d897a0800000000000000
+      internalID: -6370103078089089396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_15
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 31
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea7880d1feede7b0800000000000000
+      internalID: -5193232072935179538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXGJ_Wall_Explode-4_16
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 30
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066e08fb77a361330800000000000000
+      internalID: 3681194031410374240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TXGJ_Wall_Explode-4_0: 898352258531398975
+      TXGJ_Wall_Explode-4_1: 3175721017712703245
+      TXGJ_Wall_Explode-4_10: 2802892295275814130
+      TXGJ_Wall_Explode-4_11: 6538306279077231682
+      TXGJ_Wall_Explode-4_12: -2454183658947908149
+      TXGJ_Wall_Explode-4_13: -1609961716928195028
+      TXGJ_Wall_Explode-4_14: -6370103078089089396
+      TXGJ_Wall_Explode-4_15: -5193232072935179538
+      TXGJ_Wall_Explode-4_16: 3681194031410374240
+      TXGJ_Wall_Explode-4_2: 3693195765807443481
+      TXGJ_Wall_Explode-4_3: 2517198554797831759
+      TXGJ_Wall_Explode-4_4: -7754702379836209140
+      TXGJ_Wall_Explode-4_5: -6506003906220256574
+      TXGJ_Wall_Explode-4_6: -4453544754668737950
+      TXGJ_Wall_Explode-4_7: -9134252237768500442
+      TXGJ_Wall_Explode-4_8: -4208659325173632330
+      TXGJ_Wall_Explode-4_9: 8229725934084484075
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

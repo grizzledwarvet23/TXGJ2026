@@ -69,12 +69,17 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(hasBeenDeflected && other.CompareTag("Enemy"))
+        //interface-based rather than a hardcoded Enemy/tag check, so anything damageable (Enemy,
+        //MitochondriaBoss, ...) can be hit this way without Bullet needing to know about it
+        if (hasBeenDeflected)
         {
-            Enemy e = other.GetComponent<Enemy>();
-            e.TakeDamage(1);
-            resolved = true;
-            Destroy(gameObject);
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(1);
+                resolved = true;
+                Destroy(gameObject);
+            }
         }
     }
 

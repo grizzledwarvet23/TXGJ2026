@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: 8a356264567124707a64b435f2b6a6ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3484451126612087462
+    second: EnemyProtein_HSL_Explode-5_0
+  - first:
+      213: 5708353806164167825
+    second: EnemyProtein_HSL_Explode-5_1
+  - first:
+      213: -5919842663609560860
+    second: EnemyProtein_HSL_Explode-5_2
+  - first:
+      213: 3943482795558464440
+    second: EnemyProtein_HSL_Explode-5_3
+  - first:
+      213: 5080243154866546102
+    second: EnemyProtein_HSL_Explode-5_4
+  - first:
+      213: -8665086203748595992
+    second: EnemyProtein_HSL_Explode-5_5
+  - first:
+      213: 8036628576389257142
+    second: EnemyProtein_HSL_Explode-5_6
+  - first:
+      213: 6550474562376961448
+    second: EnemyProtein_HSL_Explode-5_7
+  - first:
+      213: -3976472207090367856
+    second: EnemyProtein_HSL_Explode-5_8
+  - first:
+      213: -2398630450320609430
+    second: EnemyProtein_HSL_Explode-5_9
+  - first:
+      213: 6021031932566434696
+    second: EnemyProtein_HSL_Explode-5_10
+  - first:
+      213: -7841116396867793335
+    second: EnemyProtein_HSL_Explode-5_11
+  - first:
+      213: 2628322916220776565
+    second: EnemyProtein_HSL_Explode-5_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_0
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 241
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5da319692eb4afc0800000000000000
+      internalID: -3484451126612087462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 243
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c0aa4ea85283f40800000000000000
+      internalID: 5708353806164167825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 213
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0995d467e78dda0800000000000000
+      internalID: -5919842663609560860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 195
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb602785b01ab630800000000000000
+      internalID: 3943482795558464440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 161
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b52e6aab36a08640800000000000000
+      internalID: 5080243154866546102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_5
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 191
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e64d6dd10e6fb780800000000000000
+      internalID: -8665086203748595992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_6
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 133
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b75f6f3c17d78f60800000000000000
+      internalID: 8036628576389257142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_7
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 164
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad06b898e5f7ea50800000000000000
+      internalID: 6550474562376961448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_8
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 96
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0924a2d889bb0d8c0800000000000000
+      internalID: -3976472207090367856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 94
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f643d505a56bed0800000000000000
+      internalID: -2398630450320609430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_10
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 101
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883f7e154a00f8350800000000000000
+      internalID: 6021031932566434696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_11
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 75
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e443a5e22ce2390800000000000000
+      internalID: -7841116396867793335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyProtein_HSL_Explode-5_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 51
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 570bb5054cda97420800000000000000
+      internalID: 2628322916220776565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EnemyProtein_HSL_Explode-5_0: -3484451126612087462
+      EnemyProtein_HSL_Explode-5_1: 5708353806164167825
+      EnemyProtein_HSL_Explode-5_10: 6021031932566434696
+      EnemyProtein_HSL_Explode-5_11: -7841116396867793335
+      EnemyProtein_HSL_Explode-5_12: 2628322916220776565
+      EnemyProtein_HSL_Explode-5_2: -5919842663609560860
+      EnemyProtein_HSL_Explode-5_3: 3943482795558464440
+      EnemyProtein_HSL_Explode-5_4: 5080243154866546102
+      EnemyProtein_HSL_Explode-5_5: -8665086203748595992
+      EnemyProtein_HSL_Explode-5_6: 8036628576389257142
+      EnemyProtein_HSL_Explode-5_7: 6550474562376961448
+      EnemyProtein_HSL_Explode-5_8: -3976472207090367856
+      EnemyProtein_HSL_Explode-5_9: -2398630450320609430
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -42,7 +42,11 @@ public class Chain : MonoBehaviour
     public GameObject chainExplosionPrefab;
     public float cascadeDelay = 0.15f; //time between each successive link exploding, chain-reaction style
 
-
+    [Header("Guaranteed starting chain")]
+    //if a scene's chainLinks array is empty at spawn (deleted, never set up, etc.), we auto-spawn
+    //one starting link from this prefab instead of leaving the player with no chain at all
+    public GameObject defaultChainLinkPrefab;
+    public float defaultChainLinkLength = 1.5f;
 
     //captured at Awake so ResetToDefault() knows what "basics" means - the chain as it existed
     //before any Length/Joint pickups grew it, so a room transition can strip that growth back off
@@ -51,8 +55,52 @@ public class Chain : MonoBehaviour
 
     void Awake()
     {
+        SanitizeChainLinks();
+        EnsureStartingChain();
         AssignLinkMetadata();
         CaptureDefaultState();
+    }
+
+    void EnsureStartingChain()
+    {
+        if (chainLinks.Length > 0 || defaultChainLinkPrefab == null) return;
+
+        GameObject linkObj = Instantiate(defaultChainLinkPrefab, transform);
+        ChainLink link = linkObj.GetComponent<ChainLink>();
+        link.angle = 0f;
+        link.angVel = 0f;
+        link.length = defaultChainLinkLength;
+
+        chainLinks = new ChainLink[] { link };
+    }
+
+    //deleting a chain link's GameObject from the scene doesn't shrink the chainLinks array in the
+    //Inspector - it just leaves a null ("None") slot behind, which would otherwise crash the very
+    //first read of chainLinks[i].something. Strip those out so an empty/partially-empty array just
+    //behaves as "no chain yet" (which Pickup.cs already knows how to rebuild from).
+    void SanitizeChainLinks()
+    {
+        if (chainLinks == null)
+        {
+            chainLinks = new ChainLink[0];
+            return;
+        }
+
+        int validCount = 0;
+        foreach (ChainLink l in chainLinks)
+        {
+            if (l != null) validCount++;
+        }
+
+        if (validCount == chainLinks.Length) return;
+
+        ChainLink[] cleaned = new ChainLink[validCount];
+        int idx = 0;
+        foreach (ChainLink l in chainLinks)
+        {
+            if (l != null) cleaned[idx++] = l;
+        }
+        chainLinks = cleaned;
     }
 
     void CaptureDefaultState()
@@ -284,6 +332,11 @@ public class Chain : MonoBehaviour
     void SpawnExplosion(ChainLink link)
     {
         if (chainExplosionPrefab == null) return;
+
+        //a zero-length "pending joint" (added by a Joint pickup, not yet given length) renders as
+        //fully invisible - exploding it would look like an explosion appearing from nowhere, since
+        //there was nothing visible there to begin with. Skip the VFX, just remove it silently.
+        if (link.length <= 0.01f) return;
 
         //the offsets baked into ChainExplosion are anchored to the source art's end-cap piece
         //position, not the rod's center - so this has to spawn at link.end(), not link.rodMid()

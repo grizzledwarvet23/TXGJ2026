@@ -1,12 +1,25 @@
 using UnityEngine;
+using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     public GameObject bullet;
     public Transform firePoint;
     private Transform player;
 
     public int health = 1;
+
+    public GameObject deathExplosionPrefab; //different per enemy type - assigned per prefab
+
+    //0 = dies permanently, like a normal room enemy. >0 = comes back to life in place after this
+    //many seconds instead of being destroyed - used for the boss room so the player always has
+    //bullets to reflect at the boss.
+    public float respawnDelay = 0f;
+
+    private int maxHealth;
+    private bool isDead = false;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D col;
 
     DamageFlash damageFlash;
 
@@ -15,6 +28,9 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         damageFlash = GetComponent<DamageFlash>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        col = GetComponent<Collider2D>();
+        maxHealth = health;
 
         if (BeatConductor.Instance != null)
         {
@@ -32,6 +48,8 @@ public class Enemy : MonoBehaviour
 
     void TryFireOnBeat()
     {
+        if (isDead) return;
+
         //only fire if we actually have line of sight to the player right when the beat lands -
         //use a raycast, and a layermask so the ground can block it same as before
         RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (Vector2)(player.position - firePoint.position).normalized, Mathf.Infinity, LayerMask.GetMask("Player", "Ground"));
@@ -53,6 +71,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         health -= damage;
 
         if (damageFlash != null) damageFlash.TriggerFlash();
@@ -65,6 +85,32 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        if (deathExplosionPrefab != null)
+        {
+            Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
+        }
+
+        if (respawnDelay > 0f)
+        {
+            StartCoroutine(RespawnAfterDelay());
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    IEnumerator RespawnAfterDelay()
+    {
+        isDead = true;
+        if (spriteRenderer != null) spriteRenderer.enabled = false;
+        if (col != null) col.enabled = false;
+
+        yield return new WaitForSeconds(respawnDelay);
+
+        health = maxHealth;
+        isDead = false;
+        if (spriteRenderer != null) spriteRenderer.enabled = true;
+        if (col != null) col.enabled = true;
     }
 }
