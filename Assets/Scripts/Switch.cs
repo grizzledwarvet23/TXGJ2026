@@ -5,11 +5,15 @@ public class Switch : MonoBehaviour
 
     public GameObject door;
 
+    public Sprite activatedSprite;
+
+    private SpriteRenderer sr;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,6 +35,7 @@ public class Switch : MonoBehaviour
                 {
                     //open the door:
                     door.SetActive(false);
+                    sr.sprite = activatedSprite;
                 }
             }
         }

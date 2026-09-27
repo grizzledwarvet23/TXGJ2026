@@ -222,6 +222,7 @@ public class Chain : MonoBehaviour
         }
 
         System.Array.Resize(ref chainLinks, index);
+        RefreshLinkVisuals();
     }
 
     //appends newLink as the new last link in the chain (used by the Joint pickup)
@@ -231,6 +232,17 @@ public class Chain : MonoBehaviour
         System.Array.Resize(ref chainLinks, oldLength + 1);
         chainLinks[oldLength] = newLink;
         AssignLinkMetadata();
+        RefreshLinkVisuals();
+    }
+
+    //re-lays out every remaining link's visual - needed because whether a link is the "last" one
+    //(plain end cap vs. jointed end cap) can change whenever the chain grows or shrinks.
+    void RefreshLinkVisuals()
+    {
+        foreach (ChainLink l in chainLinks)
+        {
+            l.ApplyLength();
+        }
     }
 
     public float wrapAngle(float a)

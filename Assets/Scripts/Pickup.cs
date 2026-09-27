@@ -59,28 +59,49 @@ public class Pickup : MonoBehaviour
     //if its joint it will add a new joint to the chain, and make it the new last link in the chain
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        bool isPlayer = other.CompareTag("Player");
+        bool isChainLink = other.GetComponent<ChainLink>() != null;
+        if (!isPlayer && !isChainLink) return;
 
         Chain chain = Object.FindFirstObjectByType<Chain>();
-        if (chain == null || chain.chainLinks == null || chain.chainLinks.Length == 0) return;
+        if (chain == null) return;
 
-        ChainLink lastLink = chain.chainLinks[chain.chainLinks.Length - 1];
+        //the chain can be fully destroyed (every link cut away), leaving chainLinks empty rather
+        //than null - a Joint pickup needs to still work then, since it's the only way to rebuild
+        //a chain from nothing. A Length pickup genuinely has nothing to extend in that case though.
+        bool hasLinks = chain.chainLinks != null && chain.chainLinks.Length > 0;
+        ChainLink lastLink = hasLinks ? chain.chainLinks[chain.chainLinks.Length - 1] : null;
 
         if (pickupType == PickupType.Length)
         {
+            if (!hasLinks) return; //nothing to lengthen - leave the pickup uncollected
+
             lastLink.SetLength(lastLink.length + lengthIncreaseAmount);
         }
         else if (pickupType == PickupType.Joint)
         {
-            GameObject newLinkObj = Instantiate(chainLinkPrefab, chain.transform);
-            ChainLink newLink = newLinkObj.GetComponent<ChainLink>();
+            //skip only if there's already a pending (zero-length) joint waiting on a Length pickup -
+            //stacking another empty joint on top of it would be redundant. An empty chain has no
+            //such thing, so this is exactly how a fully-destroyed chain gets rebuilt.
+            bool alreadyPending = hasLinks && lastLink.length <= 0f;
 
-            //start it out matching the current last link's angle so it doesn't visually snap on
-            //the first frame - Chain.Update() will reposition/re-simulate it properly from there
-            newLink.angle = lastLink.angle;
-            newLink.angVel = 0f;
+            if (!alreadyPending)
+            {
+                GameObject newLinkObj = Instantiate(chainLinkPrefab, chain.transform);
+                ChainLink newLink = newLinkObj.GetComponent<ChainLink>();
 
-            chain.AddLink(newLink);
+                //start it out matching the current last link's angle so it doesn't visually snap on
+                //the first frame (no previous link to match if the chain is empty - default to facing
+                //right, Chain.Update() will rotate it toward the mouse aim from there either way)
+                newLink.angle = hasLinks ? lastLink.angle : 0f;
+                newLink.angVel = 0f;
+
+                //joints add no length by themselves - it stays a zero-length "pending joint" marker
+                //until a Length pickup extends it into an actual segment
+                newLink.length = 0f;
+
+                chain.AddLink(newLink);
+            }
         }
 
         Destroy(gameObject);
