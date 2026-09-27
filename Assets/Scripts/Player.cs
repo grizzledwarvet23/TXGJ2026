@@ -9,8 +9,14 @@ public class Player : MonoBehaviour
     public float jumpForce = 5f;
     public int health = 3;
 
+    public float coyoteTime = 0.15f; //grace window after walking off a ledge where jump still works
+    float coyoteTimer;
+
     SpriteRenderer spriteRenderer;
     Animator animator;
+
+    bool walkFlipX; //base flipX for walk/idle art, only updated while actually moving
+    bool isJumping;  //true from Jump() until landing - the jump art is mirrored vs. the walk art
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +25,8 @@ public class Player : MonoBehaviour
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        walkFlipX = true; //default facing right before any input moves the player
     }
 
     // Update is called once per frame
@@ -28,9 +36,18 @@ public class Player : MonoBehaviour
         //do a raycast to see if we are on the ground
         //we will also use a layer mask to only hit the ground layer
         RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.1f, LayerMask.GetMask("Ground"));
-        if(hit.collider != null && Input.GetButtonDown("Jump"))
+        bool grounded = hit.collider != null;
+
+        if (grounded) isJumping = false;
+
+        //coyote time: keep the jump window open for a short moment after leaving the ground, so
+        //walking off a ledge doesn't feel like it eats a jump input a frame too late
+        coyoteTimer = grounded ? coyoteTime : coyoteTimer - Time.deltaTime;
+
+        if (coyoteTimer > 0f && Input.GetButtonDown("Jump"))
         {
             Jump();
+            coyoteTimer = 0f; //used up - no double jump off the same grace window
         }
 
 
@@ -44,6 +61,14 @@ public class Player : MonoBehaviour
         }
 
         UpdateWalkAnimation();
+
+        //drives the JumpSquat/Rise/FallTransition/Fall/Land state machine in Player.controller -
+        //Grounded catches the Fall->Land transition, VerticalVelocity catches Rise->FallTransition
+        if (animator != null)
+        {
+            animator.SetBool("Grounded", grounded);
+            animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+        }
     }
 
     void UpdateWalkAnimation()
@@ -51,9 +76,13 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         bool isWalking = Mathf.Abs(horizontal) > 0.01f;
 
-        if (isWalking && spriteRenderer != null)
+        if (isWalking) walkFlipX = horizontal > 0f;
+
+        if (spriteRenderer != null)
         {
-            spriteRenderer.flipX = horizontal < 0f;
+            //the jump sprites were drawn mirrored relative to the walk sprites, so whatever flipX
+            //value is correct for walk/idle needs to be inverted while any jump pose is showing
+            spriteRenderer.flipX = isJumping ? !walkFlipX : walkFlipX;
         }
 
         //Idle/Walk sprites are driven by the Player Animator Controller now (PlayerIdle.anim /
@@ -87,5 +116,7 @@ public class Player : MonoBehaviour
 
     void Jump(){
         rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        isJumping = true;
+        if (animator != null) animator.SetTrigger("JumpTrigger");
     }
 }
