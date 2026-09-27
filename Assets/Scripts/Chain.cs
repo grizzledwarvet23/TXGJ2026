@@ -39,9 +39,40 @@ public class Chain : MonoBehaviour
 
 
 
+    //captured at Awake so ResetToDefault() knows what "basics" means - the chain as it existed
+    //before any Length/Joint pickups grew it, so a room transition can strip that growth back off
+    private int defaultLinkCount;
+    private float[] defaultLinkLengths;
+
     void Awake()
     {
         AssignLinkMetadata();
+        CaptureDefaultState();
+    }
+
+    void CaptureDefaultState()
+    {
+        defaultLinkCount = chainLinks.Length;
+        defaultLinkLengths = new float[defaultLinkCount];
+        for (int i = 0; i < defaultLinkCount; i++)
+        {
+            defaultLinkLengths[i] = chainLinks[i].length;
+        }
+    }
+
+    //strips off any links/length gained from pickups, back down to how the chain looked at the
+    //start of the game - call this on a room transition so growth doesn't carry between rooms.
+    public void ResetToDefault()
+    {
+        if (chainLinks.Length > defaultLinkCount)
+        {
+            CutFrom(defaultLinkCount);
+        }
+
+        for (int i = 0; i < chainLinks.Length && i < defaultLinkLengths.Length; i++)
+        {
+            chainLinks[i].SetLength(defaultLinkLengths[i]);
+        }
     }
 
     void AssignLinkMetadata()

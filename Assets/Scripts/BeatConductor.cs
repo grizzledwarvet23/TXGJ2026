@@ -72,7 +72,14 @@ public class BeatConductor : MonoBehaviour
 
     float GetElapsed()
     {
-        return musicSource != null ? clipStartOffset + musicSource.time : Time.time - trackStartTime;
+        //fall back to wall-clock time whenever the music isn't actually playing (missing/broken
+        //clip reference, audio failed to start, etc.) - otherwise musicSource.time sits at 0
+        //forever and the whole beat schedule silently never fires a single attack
+        if (musicSource != null && musicSource.isPlaying)
+        {
+            return clipStartOffset + musicSource.time;
+        }
+        return Time.time - trackStartTime;
     }
 
     void SwitchToLoopClip()

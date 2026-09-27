@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        //fire on the same shared beat as every other enemy, instead of an independent per-enemy
-        //cooldown timer, so attacks land in sync with the level track
         if (BeatConductor.Instance != null)
         {
             BeatConductor.Instance.OnAttackBeat += TryFireOnBeat;

@@ -34,6 +34,14 @@ public class NextRoomTeleporter : MonoBehaviour
             }
             nextRoom.SetActive(true);
             currentRoom.SetActive(false);
+
+            //clearing a room resets the chain back to its starting links/length - growth from
+            //Length/Joint pickups doesn't carry over room to room
+            Chain chain = Object.FindFirstObjectByType<Chain>();
+            if (chain != null)
+            {
+                chain.ResetToDefault();
+            }
         }
     }
 }
