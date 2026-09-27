@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Chain : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class Chain : MonoBehaviour
     //which side of the rod (relative to its own current rodNormal, so it rotates with the swing)
     //deflects a bullet vs. cuts the chain. Bullet.cs reads this. Toggle with E.
     public bool deflectOnPositiveSide = true;
+
+    [Header("Chain break VFX")]
+    public GameObject chainExplosionPrefab;
+    public float cascadeDelay = 0.15f; //time between each successive link exploding, chain-reaction style
 
 
 
@@ -240,20 +245,54 @@ public class Chain : MonoBehaviour
         return Physics2D.OverlapBox(testMid, skinnedSize, rotDeg, LayerMask.GetMask("Ground")) != null;
     }
 
+    //removes chainLinks[index..] from the live simulation immediately (so physics/aiming/collision
+    //stop treating them as part of the chain right away), then destroys their GameObjects one at a
+    //time with a short delay between each - a cascade/chain-reaction look instead of an instant
+    //simultaneous wipe. Each one spawns a ChainExplosion at its own position/length first.
     public void CutFrom(int index)
     {
         if (chainLinks == null || index < 0 || index >= chainLinks.Length) return;
 
-        for (int i = index; i < chainLinks.Length; i++)
-        {
-            if (chainLinks[i] != null)
-            {
-                Destroy(chainLinks[i].gameObject);
-            }
-        }
+        int removedCount = chainLinks.Length - index;
+        ChainLink[] toDestroy = new ChainLink[removedCount];
+        System.Array.Copy(chainLinks, index, toDestroy, 0, removedCount);
 
         System.Array.Resize(ref chainLinks, index);
         RefreshLinkVisuals();
+
+        StartCoroutine(CascadeDestroy(toDestroy));
+    }
+
+    IEnumerator CascadeDestroy(ChainLink[] toDestroy)
+    {
+        for (int i = 0; i < toDestroy.Length; i++)
+        {
+            ChainLink link = toDestroy[i];
+            if (link != null)
+            {
+                SpawnExplosion(link);
+                Destroy(link.gameObject);
+            }
+
+            if (i < toDestroy.Length - 1)
+            {
+                yield return new WaitForSeconds(cascadeDelay);
+            }
+        }
+    }
+
+    void SpawnExplosion(ChainLink link)
+    {
+        if (chainExplosionPrefab == null) return;
+
+        //the offsets baked into ChainExplosion are anchored to the source art's end-cap piece
+        //position, not the rod's center - so this has to spawn at link.end(), not link.rodMid()
+        GameObject fx = Instantiate(chainExplosionPrefab, link.end(), Quaternion.Euler(0f, 0f, link.angle * Mathf.Rad2Deg));
+        ChainExplosion explosion = fx.GetComponent<ChainExplosion>();
+        if (explosion != null)
+        {
+            explosion.linkLength = link.length;
+        }
     }
 
     //appends newLink as the new last link in the chain (used by the Joint pickup)

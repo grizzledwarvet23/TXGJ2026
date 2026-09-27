@@ -6,13 +6,15 @@ public class Enemy : MonoBehaviour
     public Transform firePoint;
     private Transform player;
 
-    int health = 1;
+    public int health = 1;
 
+    DamageFlash damageFlash;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        damageFlash = GetComponent<DamageFlash>();
 
         if (BeatConductor.Instance != null)
         {
@@ -52,6 +54,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        if (damageFlash != null) damageFlash.TriggerFlash();
+
         if(health <= 0)
         {
             Die();

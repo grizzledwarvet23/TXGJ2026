@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -12,11 +13,21 @@ public class Player : MonoBehaviour
     public float coyoteTime = 0.15f; //grace window after walking off a ledge where jump still works
     float coyoteTimer;
 
+    public float jumpLockout = 0.2f; //blocks re-triggering jump right after one, so rapid tapping can't double-jump
+    float jumpLockoutTimer;
+
     SpriteRenderer spriteRenderer;
     Animator animator;
 
     bool walkFlipX; //base flipX for walk/idle art, only updated while actually moving
     bool isJumping;  //true from Jump() until landing - the jump art is mirrored vs. the walk art
+
+    public float idleSleepDelay = 30f; //seconds standing still before the sleep animation kicks in
+    float idleTimer;
+
+    public float iframeDuration = 1f; //how long the player is immune to damage after being hit
+    public float iframeFlickerInterval = 0.1f; //how fast the sprite blinks during that window
+    bool invincible;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,14 +51,22 @@ public class Player : MonoBehaviour
 
         if (grounded) isJumping = false;
 
+        if (jumpLockoutTimer > 0f) jumpLockoutTimer -= Time.deltaTime;
+
         //coyote time: keep the jump window open for a short moment after leaving the ground, so
-        //walking off a ledge doesn't feel like it eats a jump input a frame too late
-        coyoteTimer = grounded ? coyoteTime : coyoteTimer - Time.deltaTime;
+        //walking off a ledge doesn't feel like it eats a jump input a frame too late.
+        //Gated by jumpLockoutTimer too - right after Jump() the physics impulse hasn't actually
+        //moved the player off the ground yet, so the raycast can still report grounded for a frame
+        //or two; without the lockout, a fast enough tap re-fills coyoteTimer before you've visibly
+        //left the ground and lets you double-jump.
+        bool canRefillCoyote = grounded && jumpLockoutTimer <= 0f;
+        coyoteTimer = canRefillCoyote ? coyoteTime : coyoteTimer - Time.deltaTime;
 
         if (coyoteTimer > 0f && Input.GetButtonDown("Jump"))
         {
             Jump();
             coyoteTimer = 0f; //used up - no double jump off the same grace window
+            jumpLockoutTimer = jumpLockout;
         }
 
 
@@ -60,7 +79,7 @@ public class Player : MonoBehaviour
             rb.gravityScale = 3f;
         }
 
-        UpdateWalkAnimation();
+        UpdateWalkAnimation(grounded);
 
         //drives the JumpSquat/Rise/FallTransition/Fall/Land state machine in Player.controller -
         //Grounded catches the Fall->Land transition, VerticalVelocity catches Rise->FallTransition
@@ -71,7 +90,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void UpdateWalkAnimation()
+    void UpdateWalkAnimation(bool grounded)
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         bool isWalking = Mathf.Abs(horizontal) > 0.01f;
@@ -85,11 +104,24 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = isJumping ? !walkFlipX : walkFlipX;
         }
 
-        //Idle/Walk sprites are driven by the Player Animator Controller now (PlayerIdle.anim /
-        //PlayerWalk.anim, switching on the IsWalking bool) - this just flips the facing direction.
+        //standing still (grounded, no movement input) for idleSleepDelay seconds triggers the sleep
+        //animation; moving or leaving the ground immediately resets the timer and wakes it back up
+        if (isWalking || !grounded)
+        {
+            idleTimer = 0f;
+        }
+        else
+        {
+            idleTimer += Time.deltaTime;
+        }
+
+        //Idle/Walk/Sleep sprites are driven by the Player Animator Controller now (PlayerIdle.anim /
+        //PlayerWalk.anim / PlayerSleep.anim, switching on IsWalking/IsSleeping) - this just flips
+        //the facing direction and feeds those two bools.
         if (animator != null)
         {
             animator.SetBool("IsWalking", isWalking);
+            animator.SetBool("IsSleeping", idleTimer >= idleSleepDelay);
         }
     }
 
@@ -101,11 +133,32 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (invincible) return;
+
         health -= damage;
         if(health <= 0)
         {
             Die();
+            return;
         }
+
+        StartCoroutine(IFrames());
+    }
+
+    IEnumerator IFrames()
+    {
+        invincible = true;
+        float elapsed = 0f;
+
+        while (elapsed < iframeDuration)
+        {
+            if (spriteRenderer != null) spriteRenderer.enabled = !spriteRenderer.enabled;
+            yield return new WaitForSeconds(iframeFlickerInterval);
+            elapsed += iframeFlickerInterval;
+        }
+
+        if (spriteRenderer != null) spriteRenderer.enabled = true;
+        invincible = false;
     }
 
     void Die()

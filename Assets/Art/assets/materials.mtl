@@ -1,0 +1,6 @@
+# Made in Blockbench 5.1.4
+newmtl m_158cfbf1-f01f-5f2a-8268-a42801bc3c52
+map_Kd mitothingy texture.png
+newmtl m_24ddf3fd-913e-8d22-0f4e-d05a5c6178e5
+map_Kd mitobody texture.png
+newmtl none
