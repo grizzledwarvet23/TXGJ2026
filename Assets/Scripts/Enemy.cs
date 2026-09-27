@@ -11,6 +11,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public GameObject deathExplosionPrefab; //different per enemy type - assigned per prefab
 
+    //which of BeatConductor's two beat patterns this enemy type fires on - different enemy types
+    //fire on different instrument lines of the same song, sharing the same tempo-change point
+    public enum AttackPattern { Primary, Secondary }
+    public AttackPattern attackPattern = AttackPattern.Primary;
+
     //0 = dies permanently, like a normal room enemy. >0 = comes back to life in place after this
     //many seconds instead of being destroyed - used for the boss room so the player always has
     //bullets to reflect at the boss.
@@ -34,7 +39,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if (BeatConductor.Instance != null)
         {
-            BeatConductor.Instance.OnAttackBeat += TryFireOnBeat;
+            if (attackPattern == AttackPattern.Secondary)
+                BeatConductor.Instance.OnAttackBeatSecondary += TryFireOnBeat;
+            else
+                BeatConductor.Instance.OnAttackBeat += TryFireOnBeat;
         }
     }
 
@@ -42,7 +50,10 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (BeatConductor.Instance != null)
         {
-            BeatConductor.Instance.OnAttackBeat -= TryFireOnBeat;
+            if (attackPattern == AttackPattern.Secondary)
+                BeatConductor.Instance.OnAttackBeatSecondary -= TryFireOnBeat;
+            else
+                BeatConductor.Instance.OnAttackBeat -= TryFireOnBeat;
         }
     }
 

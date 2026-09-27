@@ -144,6 +144,7 @@ MonoBehaviour:
   firePoint: {fileID: 3332595233203063682}
   deathExplosionPrefab: {fileID: 537100595699282005, guid: 1384d03f420f4f7f8e7e2168a66328bc, type: 3}
   health: 2
+  attackPattern: 1
 --- !u!61 &614524276518258421
 BoxCollider2D:
   m_ObjectHideFlags: 0
