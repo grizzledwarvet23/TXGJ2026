@@ -5,6 +5,7 @@ public class Switch : MonoBehaviour
 {
 
     public GameObject door;
+    public GameObject[] doors;
 
     public Sprite activatedSprite;
 
@@ -79,7 +80,14 @@ public class Switch : MonoBehaviour
                     }
                     else if (door != null)
                     {
-                        door.SetActive(false);
+                        door.SetActive(!door.activeSelf);
+                        if (doors.Length > 0)
+                        {
+                            for (int i = 0; doors.Length > 0; i++)
+                            {
+                                doors[i].SetActive(!doors[i].activeSelf);
+                            }
+                        }
                     }
 
                     sr.sprite = activatedSprite;
