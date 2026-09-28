@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NextRoomTeleporter : MonoBehaviour
 {
     public Transform teleportTarget;
     public GameObject currentRoom;
     public GameObject nextRoom;
+
+    public bool shouldLoadNewScene = false;
+    public string newScene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +30,12 @@ public class NextRoomTeleporter : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            if (shouldLoadNewScene)
+            {
+                //use scene manager to load the new scene
+                SceneManager.LoadScene(newScene);
+                return;
+            }
             other.transform.position = teleportTarget.position;
             //if next room active, deactive:
             if(nextRoom.activeSelf)
@@ -42,6 +52,8 @@ public class NextRoomTeleporter : MonoBehaviour
             {
                 chain.ResetToDefault();
             }
+
+            
         }
     }
 }
